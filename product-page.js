@@ -21,7 +21,7 @@ const jewelryProducts = [
 
   {
     id: 3,
-    name: "Infinie Signature Pear Cut Moissanite Bride Set",
+    name: "Pear Cut Moissanite Bride Set",
     category: "Bride Set",
     material: "925 Sterling Silver",
     price: "₦722,100.00 ",
@@ -323,11 +323,11 @@ const jewelryProducts = [
 let myProduct = document.querySelector("#products");
 jewelryProducts.forEach(function (value, index) {
   myProduct.innerHTML += `
-    <div class="shadow shadow-md rounded-md w-full h-[370px] md:h-[350px] lg:h-[350px] p-4">
+    <div class="shadow shadow-md rounded-md w-full h-[380px] md:h-[350px] lg:h-[350px] p-2">
         <img src="${value.image}" class=" rounded-md h-[200px] w-full object-cover">
         <p class="mt-[10px] font-medium">${value.name}</p>
         <p class="mt-[5px] font-medium"> ${value.material}</p>
-        <p class="mt-[10px] font-bold"> ${value.price}</p>
+        <p class="mt-[8px] font-bold"> ${value.price}</p>
     </div>
     `;
 });
