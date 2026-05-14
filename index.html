@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jewelry Product Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="w-[80%] md:w-[60%] lg:w-[80%] m-auto ">
+      <input id="searchProduct" onkeyup="filterProducts()"
+        class="w-full h-[50px]   border border-1 p-4 rounded-full mt-[50px]"
+        type="text"
+        placeholder="Search for your favourite product"
+        class="border"
+      />
+    </div>
+    <section
+      id="products"
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-[50px] mx-[20px]"
+    ></section>
+
+    <p class="noProduct"></p>
+    <script src="product-page.js"></script>
+  </body>
+</html>
