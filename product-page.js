@@ -16,7 +16,7 @@ const jewelryProducts = [
     material: "18KT Gold",
     price: "₦5,246,000.00 ",
     image:
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/3f/fb/71/3ffb71a50c8cb7e235828db4cac865fe.jpg",
   },
 
   {
@@ -328,33 +328,38 @@ jewelryProducts.forEach(function (value, index) {
         <p class="mt-[10px] font-medium">${value.name}</p>
         <p class="mt-[5px] font-medium"> ${value.material}</p>
         <p class="mt-[8px] font-bold"> ${value.price}</p>
+        <button 
+          class=" hidden hover:block bg-[#303030] text-white w-full mt-[15px] p-2 rounded-md">
+          onclick="addToCart(${index})"
+          Add To Cart
+        </button>
     </div>
     `;
 });
 
 function filterProducts() {
-  let search = (document.querySelector = "#searchProduct".value);
+  let search = document.querySelector('#searchProduct').value;
 
   let productFilters = jewelryProducts.filter(function (value) {
     return value.name.toLowerCase().includes(search.toLowerCase());
   });
 
-//   if (productFilters.length === 0) {
-//     document.getElementById('employees2').innerHTML = "";
-//     document.querySelector("#noProduct").classList.remove("hidden");
-//   } else {
-//     document.querySelector("#noProduct").classList.add("hidden");
-//     let filterMap = productFilters.map(function (value) {
-//       return `
-//         <div class="shadow shadow-md rounded-md w-full h-[370px] md:h-[350px] lg:h-[350px] p-2">
-//         <img src="${value.image}" class=" rounded-md h-[200px] w-full object-cover">
-//         <p class="mt-[10px] font-medium">${value.name}</p>
-//         <p class="mt-[5px] font-medium"> ${value.material}</p>
-//         <p class="mt-[10px] font-bold"> ${value.price}</p>
-//         </div>
-//         `;
-//     });
-
-//     document.getElementById("employees2").innerHTML = filterMap.join("");
-//   }
+  if (productFilters.length === 0) {
+    document.getElementById("products").innerHTML = "";
+    document.querySelector("#noProduct").classList.remove("hidden");
+  } else {
+    document.querySelector("#noProduct").classList.add("hidden");
+    let filterMap = productFilters.map(function(value){
+      return `
+        <div class="shadow shadow-md rounded-md w-full h-[370px] md:h-[350px] lg:h-[350px] p-2">
+        <img src="${value.image}" class=" rounded-md h-[200px] w-full object-cover">
+        <p class="mt-[10px] font-medium">${value.name}</p>
+        <p class="mt-[5px] font-medium"> ${value.material}</p>
+        <p class="mt-[10px] font-bold"> ${value.price}</p>
+        </div>
+        `
+    });
+    
+    document.getElementById('products').innerHTML = filterMap.join("");
+  }
 }
