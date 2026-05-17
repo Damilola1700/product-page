@@ -1,7 +1,7 @@
 const jewelryProducts = [
   {
     id: 1,
-    name: "3D Pave Twinkle Infinie Pendant Necklace",
+    name: "Twinkle Infinie Pendant Necklace",
     category: "Necklace",
     material: "18KT Gold",
     price: "₦7,184,700.00 ",
@@ -11,7 +11,7 @@ const jewelryProducts = [
 
   {
     id: 2,
-    name: "Ziora Lab Grown Diamond Engagement Ring",
+    name: "Ziora Lab Diamond Engagement Ring",
     category: "Ring",
     material: "18KT Gold",
     price: "₦5,246,000.00 ",
@@ -201,7 +201,7 @@ const jewelryProducts = [
 
   {
     id: 21,
-    name: "3D Pave Twinkle Infinie Pendant Necklace",
+    name: "Twinkle Infinie Pendant Necklace",
     category: "Necklace",
     material: "18KT Gold",
     price: "₦7,184,700.00 ",
@@ -211,7 +211,7 @@ const jewelryProducts = [
 
   {
     id: 22,
-    name: "Ziora Lab Grown Diamond Engagement Ring",
+    name: "Ziora Diamond Engagement Ring",
     category: "Ring",
     material: "18KT Gold",
     price: "₦5,246,000.00 ",
@@ -221,7 +221,7 @@ const jewelryProducts = [
 
   {
     id: 23,
-    name: " Signature Pear Cut Moissanite Bride Set",
+    name: "Pear Moissanite Bride Set",
     category: "Bride Set",
     material: "925 Sterling Silver",
     price: "₦722,100.00 ",
@@ -301,7 +301,7 @@ const jewelryProducts = [
 
   {
     id: 31,
-    name: "Veloura Sapphire Stud Earrings",
+    name: "Sapphire Stud Earrings",
     category: "Earrings",
     material: "925 Sterling Silver",
     price: "₦980,000.00 ",
@@ -323,22 +323,24 @@ const jewelryProducts = [
 let myProduct = document.querySelector("#products");
 jewelryProducts.forEach(function (value, index) {
   myProduct.innerHTML += `
-    <div class="shadow shadow-md rounded-md w-full h-[380px] md:h-[350px] lg:h-[350px] p-2">
+    <div class="group shadow shadow-md rounded-md w-full h-[380px] md:h-[340px] lg:h-[330px] hover:lg:h-[360px] p-2">
         <img src="${value.image}" class=" rounded-md h-[200px] w-full object-cover">
-        <p class="mt-[10px] font-medium">${value.name}</p>
-        <p class="mt-[5px] font-medium"> ${value.material}</p>
-        <p class="mt-[8px] font-bold"> ${value.price}</p>
-        <button 
-          class=" hidden hover:block bg-[#303030] text-white w-full mt-[15px] p-2 rounded-md">
-          onclick="addToCart(${index})"
+        <div>
+         <p class="mt-[10px] font-medium">${value.name}</p>
+         <p class="mt-[5px] font-medium"> ${value.material}</p>
+         <p class="mt-[8px] font-bold"> ${value.price}</p>
+        
+         <button onclick="addToCart(${index})"
+          class=" hidden group-hover:block bg-[#303030] text-white w-full mt-[5px] p-2 rounded-md">
           Add To Cart
-        </button>
+         </button>
+        </div>
     </div>
     `;
 });
 
 function filterProducts() {
-  let search = document.querySelector('#searchProduct').value;
+  let search = document.querySelector("#searchProduct").value;
 
   let productFilters = jewelryProducts.filter(function (value) {
     return value.name.toLowerCase().includes(search.toLowerCase());
@@ -349,7 +351,7 @@ function filterProducts() {
     document.querySelector("#noProduct").classList.remove("hidden");
   } else {
     document.querySelector("#noProduct").classList.add("hidden");
-    let filterMap = productFilters.map(function(value){
+    let filterMap = productFilters.map(function (value) {
       return `
         <div class="shadow shadow-md rounded-md w-full h-[370px] md:h-[350px] lg:h-[350px] p-2">
         <img src="${value.image}" class=" rounded-md h-[200px] w-full object-cover">
@@ -357,9 +359,9 @@ function filterProducts() {
         <p class="mt-[5px] font-medium"> ${value.material}</p>
         <p class="mt-[10px] font-bold"> ${value.price}</p>
         </div>
-        `
+        `;
     });
-    
-    document.getElementById('products').innerHTML = filterMap.join("");
+
+    document.getElementById("products").innerHTML = filterMap.join("");
   }
 }
