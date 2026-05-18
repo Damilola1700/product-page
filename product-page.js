@@ -11,7 +11,7 @@ const jewelryProducts = [
 
   {
     id: 2,
-    name: "Ziora Lab Diamond Engagement Ring",
+    name: "Ziora  Diamond Engagement Ring",
     category: "Ring",
     material: "18KT Gold",
     price: "₦5,246,000.00 ",
@@ -323,7 +323,7 @@ const jewelryProducts = [
 let myProduct = document.querySelector("#products");
 jewelryProducts.forEach(function (value, index) {
   myProduct.innerHTML += `
-    <div class="group shadow shadow-md rounded-md w-full h-[380px] md:h-[340px] lg:h-[330px] hover:lg:h-[360px] p-2">
+    <div class="group shadow shadow-md rounded-md w-full h-[380px] md:h-[340px] lg:h-[330px] hover:lg:h-[360px] md:h-[350px] h-[390px] p-2">
         <img src="${value.image}" class=" rounded-md h-[200px] w-full object-cover">
         <div>
          <p class="mt-[10px] font-medium">${value.name}</p>
